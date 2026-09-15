@@ -1,1 +1,26 @@
 
+{% extends "base.html" %}
+{% block title %}Share Your Grandfather's Name{% endblock %}
+{% block content %}
+<section class="card">
+    <p class="eyebrow">A simple family memory</p>
+    <h1>Share Your Grandfather's Name</h1>
+    <p class="intro">
+        Tell us your grandfather's name. Each browser can submit one name.
+    </p>
+
+    <form method="post" novalidate>
+        <label for="grandfather_name">Grandfather's name</label>
+        <input
+            id="grandfather_name"
+            name="grandfather_name"
+            type="text"
+            maxlength="120"
+            autocomplete="name"
+            required
+            placeholder="Enter a name"
+        >
+        <button type="submit">Share name</button>
+    </form>
+</section>
+{% endblock %}
