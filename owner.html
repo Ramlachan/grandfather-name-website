@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Owner Dashboard{% endblock %}
+{% block content %}
+<section class="dashboard-header">
+    <div>
+        <p class="eyebrow">Private owner area</p>
+        <h1>Submissions</h1>
+    </div>
+    <form method="post" action="{{ url_for('owner_logout') }}">
+        <button class="secondary" type="submit">Log out</button>
+    </form>
+</section>
+
+<section class="stat">
+    <span>Total submissions</span>
+    <strong>{{ total }}</strong>
+</section>
+
+<section class="table-card">
+    {% if submissions %}
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Grandfather's name</th>
+                    <th>Submitted (UTC)</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in submissions %}
+                <tr>
+                    <td>{{ row["id"] }}</td>
+                    <td>{{ row["grandfather_name"] }}</td>
+                    <td>{{ row["submitted_at"] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="empty">No submissions yet.</p>
+    {% endif %}
+</section>
+{% endblock %}

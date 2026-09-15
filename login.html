@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Owner Login{% endblock %}
+{% block content %}
+<section class="card narrow">
+    <p class="eyebrow">Private area</p>
+    <h1>Owner Login</h1>
+
+    <form method="post" novalidate>
+        <label for="password">Owner password</label>
+        <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+        >
+        <button type="submit">Log in</button>
+    </form>
+</section>
+{% endblock %}
